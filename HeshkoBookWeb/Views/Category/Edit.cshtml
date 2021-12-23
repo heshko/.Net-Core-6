@@ -1,0 +1,47 @@
+﻿@model CategoryDTO
+
+@{
+    ViewData["Title"] = "Edit";
+    
+}
+
+<div class="container">
+    <div class=row>
+        <div class="col-12">
+            <h1>Edit</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6" > 
+           
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form class="col-7 border p-3 m-3 text-center " method="post"  >
+           @* <div class="mb-3">
+                <input class="d-none"  asp-for=Id />
+            </div>*@
+            <div class="mb-3">
+              <label asp-for="Name" class="form-label">Category Name</label>
+              <input type="text" class="form-control" asp-for="Name" placeholder="Name">
+               <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+            <div class="mb-3">
+              <label  asp-for="DisplayOrder" class="form-label">Display Order</label>
+              <input  class="form-control" asp-for="DisplayOrder" placeholder="Display Order">
+              <span class="text-danger" asp-validation-for="DisplayOrder"></span>
+            </div>
+            <button class="btn-info" type="submit">Update</button>
+        </form>
+    </div>
+
+    <a class="btn btn-warning" asp-area="" asp-controller="Category" asp-action="Index"   >Back To Category List</a>
+            
+        </div>
+    </div>
+
+
+    @section Scripts{
+        @{
+            <partial name="_ValidationScriptsPartial" />
+        }
+    }
